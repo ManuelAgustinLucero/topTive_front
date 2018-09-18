@@ -2,9 +2,7 @@ import { Component, OnInit,ElementRef, ViewChild  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Post } from '../../model/post';
 import { PostService } from '../../services/post.service';
-import { NgIf } from '@angular/common';
 import { Router } from "@angular/router";
-import { exists } from 'fs';
 
 @Component({
   selector: 'app-create-post',
