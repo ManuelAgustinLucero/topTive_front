@@ -1,0 +1,67 @@
+<main class="profile-page">
+  <section class="section-profile-cover section-shaped my-0">
+    <div class="shape shape-style-1 shape-primary shape-skew alpha-4">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </section>
+  <section class="section section-skew">
+    <div class="container">
+      <div class="card card-profile shadow mt--300">
+        <div class="px-4">
+          <p (click)="deleteComment(noticia.id)" class="close text-danger" *ngIf="token && noticia?.user.username==user?.username">
+            <i class="ni ni ni-fat-remove"></i>
+          </p>
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+            </div>
+            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+
+              <div class="card-profile-actions py-4 mt-lg-0">
+                <p>
+                  <small class="text-muted pull-left"></small>
+                  {{post?.created_at | date:'d/MM/yy'}}</p>
+              </div>
+            </div>
+            <div class="col-lg-4 order-lg-1">
+              <div class="card-profile-stats d-flex justify-content-center">
+                <div>
+                  <a class="btn" [routerLink]="['/posts']">	<span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
+                   Volver</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-5">
+            <h3>
+              {{post?.title}}
+            </h3>
+            <div class="h6 mt-4">
+              <i class="ni business_briefcase-24 mr-2"></i>{{noticia?.sub_title}}</div>
+          </div>
+          <div class="mt-5 py-5 border-top text-center" *ngIf="post?.image" >
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <img src="{{post?.image}}" class="img-fluid rounded shadow-lg" >
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 py-5 border-top text-center">
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <br>
+                <p>{{post?.description}}</p>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

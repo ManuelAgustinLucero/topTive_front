@@ -1,0 +1,90 @@
+<main>
+
+    <section class="section-profile-cover section-shaped my-0">
+      <div class="shape shape-style-1 shape-primary shape-skew alpha-4">
+        <span></span>
+        <span></span>
+        <span></span>
+  
+      </div>
+    </section>
+    <section class="section section-skew">
+      <div class="container">
+        <form #formNoticia="ngForm" (ngSubmit)="onPost()" class="form" method="" action="" role="form">
+          <div class="card card-profile shadow mt--300">
+            
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 order-lg-2">
+                </div>
+                <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+    
+                  <div class="card-profile-actions py-4 mt-lg-0">
+                    <p>
+                      <small class="text-muted pull-left"></small>
+                  </div>
+                </div>
+                <div class="col-lg-4 order-lg-1">
+                  <div class="card-profile-stats d-flex justify-content-center">
+                    <div>
+                      <a class="btn" [routerLink]="['/posts']">	<span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
+                       Volver</a>
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+            <h2 class="mb-5 text-center">
+              <span>Nuevo Post</span>
+            </h2>
+            <div class="px-4">
+              <div class="mt-5 py-5 border-top text-center">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9">
+                    <img [src]="image" class="img-fluid rounded shadow-lg" style="width: 350px;">
+                    <br>
+                    <br>
+                    <h6 class="text-center text-success">Imagen</h6>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative">
+                        <input class="form-control" placeholder="Imagen" type="file" id="avatar" (change)="onFileChange($event)" (change)="uploadImage($event)" >
+                      </div>
+                    </div>
+                    <br>
+                    <h6 class="text-center text-success">Titulo</h6>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative">
+                        <input #title="ngModel" name="title" [(ngModel)]="post.title" class="form-control" id="exampleFormControlTextarea1" rows="3"
+                          placeholder="Titulo ..." required>
+                      </div>
+                    </div>
+                    <h6 class="text-center text-success">Contenido</h6>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative">
+                        <textarea #description="ngModel" name="description" [(ngModel)]="post.description" class="form-control" id="exampleFormControlTextarea1"
+                          rows="3" placeholder="Descripcion ..." required></textarea>
+                      </div>
+                    </div>
+               
+                  </div>
+                </div>
+              </div>
+              <div class="mt-5 py-5 border-top text-center">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9">
+                      <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+                          <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+                          <span class="alert-inner--text"><strong>Warning!</strong> Los campos Titulo y Descripcion son obligatorios!</span>
+                        
+                      </div>
+                    <button type="submit" class="btn btn-success btn-sm">Actualizar post</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  
+  </main>

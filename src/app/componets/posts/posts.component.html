@@ -1,0 +1,74 @@
+<main>
+  <div class="position-relative">
+    <!-- shape Hero -->
+    <section class="section-shaped my-0">
+      <div class="shape shape-style-1 shape-default shape-skew">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="container shape-container d-flex">
+        <div class="col px-0">
+          <div class="row">
+            <div class="col-lg-6">
+              <h1 class="display-3  text-white">Post
+              </h1>
+              <p class="lead  text-white">Para crear un nuevo post presione el boton de abajo.</p>
+
+              <div class="btn-wrapper">
+                <a [routerLink]="['/create']" class="btn btn-info btn-icon mb-3 mb-sm-0">
+                  <span class="btn-inner--icon">
+                    <i class="fa fa-code"></i>
+                  </span>
+                  <span class="btn-inner--text">Crear Post</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 1st Hero Variation -->
+  </div>
+  <section class="section section-lg pt-lg-0 mt--200">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="row row-grid">
+            <!-- EMPIEZA EL FOR -->
+            <div class="col-lg-4" *ngFor="let row of posts">
+              <div class="card card-lift--hover shadow border-0">
+                <div class="card-img" >
+                  <img style="height: 200px;width: 400px;" src="{{row?.image}}" onError="this.src='https://increasify.com.au/wp-content/uploads/2016/08/default-image.png';" class="img-fluid rounded shadow-lg">
+
+                </div>
+                <div class="card-body py-5">
+
+                  <p (click)="deletePost(row.id)" class="close text-danger">
+                    <i style="font-size: 28px" class="ni ni ni-fat-remove"></i>
+                  </p>
+                  <p [routerLink]="['/update', row.id]" class="close text-primary">
+                    <i style="font-size: 15px" class="ni ni ni-settings"></i>
+                  </p>
+                  <!-- <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                      <i class="ni ni-check-bold"></i>
+                    </div> -->
+                  <h6 class="text-primary text-uppercase">{{row.title}}</h6>
+
+                  <a [routerLink]="['/post', row.id]" class="btn btn-primary btn-sm mt-4">Leer Más</a>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
